@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Random Quote API</title>
+</head>
+<body>
+    <h1>Random Motivational Quote</h1>
+    <button onclick="fetchQuote()">Dapatkan Kutipan</button>
+    <p id="quote"></p>
+
+    <script>
+        function fetchQuote() {
+            fetch('http://localhost:3000/quote')
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('quote').innerText = data.quote;
+                })
+                .catch(error => console.error('Error:', error));
+        }
+    </script>
+</body>
+</html>
